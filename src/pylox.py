@@ -26,11 +26,11 @@ def run(source):
 
 
 def run_file(filename):
-    if not os.path.isfile(filename):
+    if os.path.isfile(filename):
         with open(filename, 'r') as source:
             run(source.read())
     else:
-        report(0, "No existe el fichero indicado: {filename}")
+        report(0, f"No existe el fichero indicado: {filename}")
 
 
 def run_prompt():
