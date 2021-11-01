@@ -98,7 +98,7 @@ class Scanner:
         return self.new_token(TokenType.NUMBER, value)
 
     def identifier(self):
-        while self.peek().isalpha():
+        while self.peek().isalnum():
             self.advance
         value = self.source[self.start:self.current]
         token_type = KEYWORDS.get(value, TokenType.IDENTIFIER)
