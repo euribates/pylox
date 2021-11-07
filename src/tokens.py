@@ -64,3 +64,8 @@ class Token:
 
     def __str__(self):
         return f"{self.type} {self.lexeme} {self.literal} (line {self.line})"
+
+
+class Value:
+    def __init__(self, value):
+        self.value = value
