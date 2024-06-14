@@ -40,4 +40,4 @@ tipos de tokens.
 ### Manejo de errores
 
 
-El fichero de manejo de errores esta en `error
+El fichero de manejo de errores esta en `errors.py`.
