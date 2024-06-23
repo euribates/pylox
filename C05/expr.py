@@ -1,10 +1,12 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
+#!/usr/bin/env python3
 
+from abc import ABC
 from dataclasses import dataclass
 from tokens import Token, Value
 
-class Expr:
+
+class Expr(ABC):
+
     def accept(self, visitor):
         raise NotImplementedError(
             f"Class {self.__class__.__name__} must implement"
@@ -45,11 +47,9 @@ class Unary(Expr):
 
     def accept(self, visitor):
         return visitor.visit_unary(self)
- 
 
-#
-#  Visitor example
-#
+
+#--------------------------------------------------[ Visitor example ]--
 
 class ASTPrinter:
 
@@ -73,13 +73,13 @@ class ASTPrinter:
             expr.left,
             expr.right,
         )
-    
+
     def visit_grouping(self, expr):
         return self.parenthesize(
             "group",
             expr.expression,
         )
-    
+
     def visit_literal(self, expr):
         if expr.value is None:
             return 'nil'
